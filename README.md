@@ -92,7 +92,9 @@ The model is evaluated on the test set using:
 - scikit-learn
 - ipywidgets (for image upload tool)
 
+- here is the link to download the dataset: https://1drv.ms/u/c/77085e0297764dff/EU_eGzvX7IBDuGFx6fi-qy0BGWHr6UZ9kF53eBT0frZ5Ew?e=uOfxql
+
 You can install required libraries in Colab using:
 ```bash
 !pip install torch torchvision matplotlib tqdm seaborn scikit-learn ipywidgets
-here is the link to download the dataset https://1drv.ms/u/c/77085e0297764dff/EU_eGzvX7IBDuGFx6fi-qy0BGWHr6UZ9kF53eBT0frZ5Ew?e=uOfxql
+
