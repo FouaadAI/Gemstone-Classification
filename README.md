@@ -1,100 +1,141 @@
-# Gemstone Classification Using Deep Learning
+# 🪨 Gemstone Classification (Deep Learning Project)
 
-This repository contains a deep learning-based image classification project that identifies various types of gemstones using a convolutional neural network (ResNet50). The project is implemented in Python using PyTorch and is designed to run in Google Colab.
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Dataset](#dataset)
-- [Model Architecture](#model-architecture)
-- [Training Details](#training-details)
-- [Evaluation](#evaluation)
-- [How to Use](#how-to-use)
-- [Results](#results)
-- [Requirements](#requirements)
-- [Author](#author)
+A deep learning–powered classification system that identifies gemstone types from images.
+This project uses **TensorFlow/Keras** to build and train a Convolutional Neural Network (CNN) capable of recognizing gemstones with high accuracy.
+All steps—from preprocessing to prediction—are included in a clean, reproducible Jupyter Notebook.
 
 ---
 
-## Overview
+## 🚀 Features
 
-The goal of this project is to classify gemstone images into one of 87 categories. It uses a pretrained ResNet50 model with fine-tuning, early stopping, and evaluation metrics such as accuracy and confusion matrices to measure performance.
-
----
-
-## Dataset
-
-The dataset is organized into three directories:
-- /train: Training images organized in subfolders by class.
-- /test: Testing images organized similarly.
-- /validation: (optional) Used if not using a split from training data.
-
-*Note*: The dataset must be uploaded as a ZIP archive and is automatically extracted within the notebook.
+* Image-based gemstone classification
+* Fully implemented in **TensorFlow/Keras**
+* Clean and structured training pipeline
+* Data preprocessing and augmentation
+* Model evaluation with accuracy, loss curves, and confusion matrix
+* Supports prediction on new images
+* Easy to extend for more gemstone classes
 
 ---
 
-## Model Architecture
+## 📁 Project Structure
 
-- *Base Model*: ResNet50 pretrained on ImageNet.
-- *Modifications*: Replaced the final fully connected layer to match the number of gemstone classes (87).
-- *Loss Function*: CrossEntropyLoss
-- *Optimizer*: Adam
-- *Device*: Automatically uses GPU if available.
-
----
-
-## Training Details
-
-- *Image Size*: 224x224
-- *Batch Size*: 32
-- *Epochs*: 50
-- *Learning Rate*: 1e-4
-- *Early Stopping*: Stops if no improvement for 5 consecutive epochs.
-- *Best Model*: Automatically saved as best_model.pt.
+```
+Gemstone-Classification/
+│
+├── DL_Gemstone_Classification_Project.ipynb    # Main notebook (model training + evaluation)
+├── dataset/                                    # Gemstone images (train/test)
+├── saved_model/                                # Exported model (optional)
+├── README.md                                   # Project documentation
+└── requirements.txt                            # Dependencies (optional)
+```
 
 ---
 
-## Evaluation
+## 🧠 Model Overview
 
-The model is evaluated on the test set using:
-- Final test accuracy
-- Full confusion matrix
-- Reduced confusion matrix for the top 10 most confused classes
-- Visual plots of training/validation loss and accuracy
+The notebook builds a deep learning classifier with:
 
----
-
-## How to Use
-
-1. Upload the dataset ZIP file to the Colab environment.
-2. Run the notebook cell-by-cell.
-3. Use the interactive widget to upload custom gemstone images and receive predictions.
-4. View results via plots and confusion matrices.
+* **Convolutional Neural Networks (CNNs)**
+* Data augmentation (rotation, shift, flipping)
+* Softmax output for multi-class prediction
+* Categorical crossentropy loss
+* Adam optimizer
+* Training + validation split
+* Accuracy and loss visualization
 
 ---
 
-## Results
+## 📦 Installation
 
-- *Test Accuracy*: ~X.XX% (Replace with your final accuracy)
-- *Top Confused Classes*: Displayed in a heatmap using seaborn.
-- *Live Demo*: Image upload tool inside the notebook allows real-time classification.
+### 1. Clone the Repository
 
----
-
-## Requirements
-
-- Python 3.8+
-- PyTorch
-- torchvision
-- matplotlib
-- tqdm
-- seaborn
-- scikit-learn
-- ipywidgets (for image upload tool)
-
-- here is the link to download the dataset: https://1drv.ms/u/c/77085e0297764dff/EU_eGzvX7IBDuGFx6fi-qy0BGWHr6UZ9kF53eBT0frZ5Ew?e=uOfxql
-
-You can install required libraries in Colab using:
 ```bash
-!pip install torch torchvision matplotlib tqdm seaborn scikit-learn ipywidgets
+git clone https://github.com/FouaadAI/Gemstone-Classification
+cd Gemstone-Classification
+```
 
+### 2. Install Dependencies
+
+If using a requirements file:
+
+```bash
+pip install -r requirements.txt
+```
+
+Common libraries used:
+
+```
+tensorflow
+numpy
+matplotlib
+pandas
+scikit-learn
+opencv-python
+```
+
+---
+
+## ▶️ Usage
+
+### Run the Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+Open:
+
+```
+DL_Gemstone_Classification_Project.ipynb
+```
+
+### Train the Model
+
+Run all cells to:
+
+1. Load dataset
+2. Preprocess images
+3. Train CNN
+4. Evaluate performance
+5. Predict new gemstone images
+
+---
+
+## 🔍 Example Prediction
+
+Once trained, the notebook allows predicting new gemstone images:
+
+```python
+pred = model.predict(img)
+print("Predicted class:", class_names[np.argmax(pred)])
+```
+
+---
+
+## 📊 Results & Metrics
+
+The notebook includes:
+
+* Training & validation **accuracy curves**
+* Training & validation **loss curves**
+* **Confusion matrix**
+* Final model accuracy
+* Sample predictions
+
+These metrics help validate model performance and detect overfitting.
+
+---
+
+## 🌐 Repository
+
+GitHub:
+**[https://github.com/FouaadAI/Gemstone-Classification](https://github.com/FouaadAI/Gemstone-Classification)**
+
+---
+
+## 📄 License
+
+This project is distributed under the **MIT License**.
+
+---
